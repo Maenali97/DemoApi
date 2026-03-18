@@ -1,0 +1,52 @@
+﻿namespace DemoApi
+{
+    public class EmployeeDto : EntityDto<Guid>
+    {
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string PrefixEn { get; set; }
+        public string FirstNameEn { get; set; }
+        public string SecondNameEn { get; set; }
+        public string ThirdNameEn { get; set; }
+        public string LastNameEn { get; set; }
+        public string SuffixEn { get; set; }
+        public string FullNameEn { get; set; }
+        public string PrefixAr { get; set; }
+        public string FirstNameAr { get; set; }
+        public string SecondNameAr { get; set; }
+        public string ThirdNameAr { get; set; }
+        public string LastNameAr { get; set; }
+        public string SuffixAr { get; set; }
+        public string FullNameAr { get; set; }
+        public DateTime? DateOfBirth { get; set; }
+        public string ShortNameEn { get; set; }
+        public string ShortNameAr { get; set; }
+        public GenderEnum Gender { get; set; }
+        public MaritalStatusEnum MaritalStatus { get; set; }
+        public string Religion { get; set; }
+        public string NationalNumber { get; set; }
+        public DateTime CreationDate { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsCitizen { get; set; }
+        public bool IsActive { get; set; }
+        public string Facebook { get; set; }
+        public string Instgram { get; set; }
+        public string Twitter { get; set; }
+        public string LinkedIn { get; set; }
+        public string GooglePlus { get; set; }
+        public string Skype { get; set; }
+        public decimal BasicSalary { get; set; }
+        public string ZIP { get; set; }
+        public string ProfileImageUrl { get; set; }
+        public string CoverProfileImageUrl { get; set; }
+        public string PhoneNumber { get; set; }
+        public string About { get; set; }
+        public string Bio { get; set; }
+        public string Location { get; set; }
+        public Guid CountryId { get; set; }
+        public Guid CityId { get; set; }
+        public string CompanyName { get; set; }
+        public Guid ManegerID { get; set; }
+        public DateTime? HiringDate { get; set; }
+    }
+}
