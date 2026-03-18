@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DemoApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260315083244_Initial")]
+    [Migration("20260318075057_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -78,18 +78,22 @@ namespace DemoApi.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateOfBirth")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Facebook")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstNameAr")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstNameEn")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FullNameAr")
@@ -120,9 +124,11 @@ namespace DemoApi.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("LastNameAr")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastNameEn")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LinkedIn")
@@ -138,12 +144,15 @@ namespace DemoApi.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("NationalNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PrefixAr")
@@ -156,9 +165,11 @@ namespace DemoApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecondNameAr")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecondNameEn")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShortNameAr")
@@ -177,9 +188,11 @@ namespace DemoApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ThirdNameAr")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ThirdNameEn")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Twitter")
@@ -190,7 +203,7 @@ namespace DemoApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employees", "Account");
                 });
 #pragma warning restore 612, 618
         }

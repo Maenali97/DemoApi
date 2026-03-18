@@ -16,5 +16,11 @@
             return  _dbContext.Employees.Where(x => x.Email == email && x.Password == password).SingleOrDefault();
             
         }
+
+        public Employee GetEmployeeByEmailAsync(string email)
+        {
+            return  _dbContext.Employees.Where(x => x.Email == email).SingleOrDefault();
+            
+        }
     }
 }

@@ -48,5 +48,38 @@ namespace DemoApi
         public  string CompanyName { get; set; }
         public  Guid ManegerID { get; set; }
         public  DateTime? HiringDate { get; set; }
+
+        public Employee() { }    
+
+        public Employee(
+            Guid id, string email,
+            string password, string firstNameEn,
+            string secondNameEn, string thirdNameEn,
+            string lastNameEn, string firstNameAr,
+            string secondNameAr,string thirdNameAr,
+            string lastNameAr, DateTime dateOfBirth,
+            GenderEnum gender,MaritalStatusEnum maritalStatus,
+            string nationalNumber,string phoneNumber
+            )
+        {
+            Id = id;
+            Email = email;
+            Password = password;
+            FirstNameEn = firstNameEn;
+            SecondNameEn = secondNameEn;
+            ThirdNameEn = thirdNameEn;
+            LastNameEn = lastNameEn;
+            FirstNameAr = firstNameAr;
+            SecondNameAr = secondNameAr;
+            ThirdNameAr = thirdNameAr;
+            LastNameAr = lastNameAr;
+            DateOfBirth = dateOfBirth;
+            Gender = gender;
+            MaritalStatus = maritalStatus;
+            NationalNumber = nationalNumber;
+            PhoneNumber = phoneNumber;
+
+
+        }
     }
 }
