@@ -1,4 +1,4 @@
-using DemoApi;
+﻿using DemoApi;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,7 +20,7 @@ builder.Services.AddServices();
 
 var app = builder.Build();
 
-await ConfigureMigrateAsync(app);
+//await ConfigureMigrateAsync(app);
 
 using (var scope = app.Services.CreateScope())
 {
@@ -36,14 +36,16 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(c => {
+    c.SwaggerEndpoint("/swagger/v1/swagger.json","DemoApi V1");
+    c.RoutePrefix = string.Empty;
+});
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
-app.MapGet("/", () => "Demo API Running");
 app.Run();
 
 
