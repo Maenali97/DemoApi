@@ -4,6 +4,7 @@ namespace Domain
 {
 	public interface IRepository<TEntity, TKey> where TEntity : Entity<TKey>
     {
+        IQueryable<TEntity> Query();
         Task<List<TEntity>> GetListAsync();
 		Task<List<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate);
 		Task<TEntity> GetAsync(TKey id, params Expression<Func<TEntity, object>>[] includes);

@@ -24,5 +24,9 @@ namespace DemoApi
         
         [HttpGet("getemployeebyemail")]
         public async Task<IActionResult> GetEmployeeByEmailAsync(string email) => Ok(await _accountService.GetEmployeeByEmailAsync(email));
+
+        [HttpPost("getemployeelistfilter")]
+        public async Task<IActionResult> GetEmployeeListFilterAsync(EmployeeFilter filter) => Ok(await _accountService.GetEmployeeListFilterAsync(filter));
+    
     }
 }

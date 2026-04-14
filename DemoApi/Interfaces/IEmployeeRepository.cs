@@ -7,5 +7,6 @@ namespace DemoApi
         Employee FindByEmail(string email);
         Employee GetEmployeeByEmailAndPassword(string email, string password);
         Employee GetEmployeeByEmailAsync(string email);
+        Task<List<Employee>> GetEmployeeListFilterAsync(EmployeeFilter filter);
     }
 }

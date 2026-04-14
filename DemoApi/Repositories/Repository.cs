@@ -7,12 +7,19 @@ namespace DemoApi
     public class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : Entity<TKey>
     {
         protected readonly ApplicationDbContext _context;
+        protected readonly DbSet<TEntity> _dbSet;
         public Repository(ApplicationDbContext context)
         {
             _context = context;
+            _dbSet = _context.Set<TEntity>();
+
         }
 
-   
+        public virtual IQueryable<TEntity> Query()
+        {
+            return _dbSet.AsQueryable();
+        }
+
         public virtual async Task<List<TEntity>> GetListAsync()
         {
             try

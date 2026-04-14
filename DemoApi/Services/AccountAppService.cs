@@ -86,5 +86,14 @@ namespace DemoApi
 
         }
 
+        public async Task<List<EmployeeDto>> GetEmployeeListFilterAsync(EmployeeFilter filter)
+        {
+
+            var employees = await _employeeRepository.GetEmployeeListFilterAsync(filter);
+
+            return ObjectMapper.Map<List<Employee>, List<EmployeeDto>>(employees);
+
+        }
+
     }
 }
