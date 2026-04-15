@@ -31,11 +31,12 @@ namespace DemoApi
         public async Task<List<Employee>> GetEmployeeListFilterAsync(EmployeeFilter filter)
         {
             return await Query()
-                .WhereIf(!string.IsNullOrEmpty(filter.Name), x => x.FirstNameEn.Contains(filter.Name))
+                .WhereIf(!string.IsNullOrEmpty(filter.Name), x => filter.lang == "en" ? x.FirstNameEn.Contains(filter.Name) : x.FirstNameAr.Contains(filter.Name))
+                .WhereIf(!string.IsNullOrEmpty(filter.Email), x => x.Email == filter.Email)
                 .WhereIf(filter.IsCitizen != null, x => x.IsCitizen == filter.IsCitizen)
-                .WhereIf(filter.Email != null, x => x.Email == filter.Email)
                 .WhereIf(filter.Gender != null, x => x.Gender == filter.Gender)
-                .PageBy(filter.Skip, filter.Size)
+                .OrderBy(x => x.CreationDate)
+                .PageBy((filter.Skip - 1) * filter.Size, filter.Size)
                 .ToListAsync();
         }
     }
