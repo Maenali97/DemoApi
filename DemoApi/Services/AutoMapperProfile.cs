@@ -9,6 +9,12 @@ namespace DemoApi
         {
             CreateMap<Employee, EmployeeDto>();
             CreateMap<EmployeeDto, Employee>();
+
+            CreateMap<City,CityDto>();
+            CreateMap<CityDto, City>();
+
+            CreateMap<Country, CountryDto>();
+            CreateMap<CountryDto, Country>();
         }
     }
 }

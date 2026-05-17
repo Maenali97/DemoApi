@@ -199,6 +199,32 @@ namespace DemoApi
                 return await _context.Set<TEntity>().CountAsync(predicate);
             }
         }
+
+        public async Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includes)
+        {
+            try
+            {
+                IQueryable<TEntity> query = _context.Set<TEntity>();
+
+                // Apply includes
+                if (includes != null)
+                {
+                    foreach (var include in includes)
+                    {
+                        query = query.Include(include);
+                    }
+                }
+
+                // Apply filter
+                return await query.FirstOrDefaultAsync(predicate);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
         public async Task SaveChangesAsync()
         {
             await _context.SaveChangesAsync();

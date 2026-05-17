@@ -18,7 +18,8 @@ namespace Domain
         Task<IEnumerable<TEntity>> DeleteRangeAsync(IEnumerable<TEntity> entities);
         Task<long> GetCountAsync();
 		Task<long> GetCountAsync(Expression<Func<TEntity, bool>> predicate);
-		Task SaveChangesAsync();
+        Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includes);
+        Task SaveChangesAsync();
 
     }
 }

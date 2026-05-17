@@ -34,6 +34,21 @@ namespace DemoApi
                 b.Property(x => x.NationalNumber).IsRequired();
                 b.Property(x => x.PhoneNumber).IsRequired();
             });
+
+            builder.Entity<City>(b =>
+            {
+                b.ToTable("Cities");
+                b.Property(x => x.CityAr).IsRequired();
+                b.Property(x => x.CityEn).IsRequired();
+                b.Property(x => x.CountryID).IsRequired();
+            });
+
+            builder.Entity<Country>(b =>
+            {
+                b.ToTable("Countries");
+                b.Property(x => x.CountryEn).IsRequired();
+                b.Property(x => x.CountryAr).IsRequired();
+            });
         }
     }
 }

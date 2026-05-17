@@ -26,6 +26,7 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     await SeedContirButer.SeedEmployeeAsync(services);
+    await SeedContirButer.SeedCountryAndCityAsync(services);
 }
 
 

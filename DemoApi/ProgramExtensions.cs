@@ -7,6 +7,8 @@ namespace DemoApi
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IAccountAppService, AccountAppService>();
+            services.AddScoped<ICityAppService, CityAppService>();
+            services.AddScoped<ICountryAppService, CountryAppService>();
 
             return services;
 
@@ -15,6 +17,8 @@ namespace DemoApi
         {
             services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+            services.AddScoped<ICityRepository, CityRepository>();
+            services.AddScoped<ICountryRepository, CountryRepository>();
 
             return services;
 
