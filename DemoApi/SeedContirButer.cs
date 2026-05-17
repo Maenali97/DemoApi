@@ -329,15 +329,23 @@
 }
             };
 
-
-            foreach (var employee in employees)
+            try
             {
-                var existing = employeeRepository.FindByEmail(employee.Email);
-                if (existing == null)
+                foreach (var employee in employees)
                 {
-                    await employeeRepository.InsertAsync(employee);
+                    var existing = employeeRepository.FindByEmail(employee.Email);
+                    if (existing == null)
+                    {
+                        await employeeRepository.InsertAsync(employee);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                File.WriteAllText("Logs.txt", ex.ToString());
+                throw;
+            }
+
         }
 
         public static async Task SeedCountryAndCityAsync(IServiceProvider serviceProvider)
@@ -424,10 +432,12 @@
 
             foreach (var country in countries)
             {
-                var exist = await countryRepository.FirstOrDefaultAsync(x => x.CountryEn == country.CountryEn);
+                var exist = await countryRepository
+                    .FirstOrDefaultAsync(x => x.CountryEn == country.CountryEn);
+
                 if (exist == null)
                 {
-                   await countryRepository.InsertAsync(country);
+                    await countryRepository.InsertAsync(country);
                 }
             }
 

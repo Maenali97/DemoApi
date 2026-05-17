@@ -12,6 +12,13 @@ namespace DemoApi
         public  string CountryAr { get; set; }
         public  string CountryEn { get; set; }
 
+        public void setCountryId(Guid id)
+        {
+            Check.NotNullOrEmpty(id, nameof(id));
+            Id = id;
+
+        }
+
         public Country(Guid id, string countryAr, string countryEn)
         {
             Check.NotNullOrEmpty(id, nameof(id));
